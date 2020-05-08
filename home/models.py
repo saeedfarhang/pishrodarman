@@ -6,6 +6,7 @@ class Products(models.Model):
     english_name = models.CharField(max_length = 150)
     ditail = models.TextField()
     category = models.ForeignKey('products_category',on_delete=models.CASCADE,related_name='+',)
+    reccomend = models.BooleanField(default=False)
     # brands
     # images
     def __str__(self):
