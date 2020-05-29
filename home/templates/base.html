@@ -7,6 +7,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <!-- load static -->
 
 
@@ -89,6 +91,7 @@
 
     </div>
     <script src="{% static 'home/JS/app.js' %}"></script>
+    <script>document.body.addEventListener('touchstart', function(e){ e.preventDefault(); });</script>
 </body>
 
 </html>
