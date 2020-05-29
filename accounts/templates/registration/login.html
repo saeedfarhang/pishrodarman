@@ -1,7 +1,7 @@
-{% extends 'base.html' %} {% block title %} login {% endblock title %} {% block content %} {% load crispy_forms_tags %}
+{% extends 'base.html' %} {% block title %} login {% endblock title %} {% block content %}
 <div class="login">
     <form action="" method="POST">
-        {% csrf_token %} {{form|crispy}} {% if request.GET.next %}
+        {% csrf_token %} {{form}} {% if request.GET.next %}
         <input type="hidden" name="next" value="{{request.GET.next}}"> {%endif%}
         <button type="submit">ورود</button>
     </form>

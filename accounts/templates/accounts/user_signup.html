@@ -2,13 +2,12 @@
 {% block title %}
 signup
 {% endblock title %}
-{% load crispy_forms_tags %}
 {% block content %}
 
 
 
 <form action="" method="POST">
-    {{form|crispy}}
+    {{form}}
     {% csrf_token %}
     <button type="submit">ثبت نام</button>
 </form>

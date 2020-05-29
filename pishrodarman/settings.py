@@ -25,7 +25,7 @@ SECRET_KEY = '((oa3bbssd!ypqg19ytya-4_@(od)kl*mno)8g%+4%)3)17%xf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pishrodarman.pythonanywhere.com','localhost']
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home','accounts','crispy_forms','carts',
+    'home','accounts','carts',
 ]
 
 MIDDLEWARE = [
@@ -120,7 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = '/home/pishrodarman/pishrodarman-re/static'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'static'),
 )
