@@ -3,7 +3,7 @@ from . import models
 
 # Register your models here.
 
-
+admin.site.site_header = 'PishroDarman'
 # admin.site.register(models.Products)
 admin.site.register(models.products_category)
 
