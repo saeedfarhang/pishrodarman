@@ -43,7 +43,7 @@ nav {
 }
 
 .nav-links {
-  position: absolute;
+  position: fixed;
   right: 0;
   height: 92vh;
   top: 8vh;
@@ -277,7 +277,7 @@ nav {
 
 .last-products h1 {
   font-size: 1.5rem;
-  margin: 0 15px;
+  margin: 20px 15px 0 0;
   color: #3DC7BE;
 }
 
@@ -288,7 +288,9 @@ nav {
 }
 
 .products {
-  height: 350px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
   width: 100%;
   overflow-y: hidden;
   overflow-x: scroll;
@@ -299,11 +301,15 @@ nav {
       flex-wrap: nowrap;
   -ms-flex-negative: 0;
       flex-shrink: 0;
+  padding-bottom: 10px;
 }
 
 .product {
-  margin: 10px 10px;
-  width: 300px;
+  padding-bottom: 10px;
+  margin: 10px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   height: 90%;
   border-radius: 10px;
   background-color: #F75940;
@@ -319,8 +325,6 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-shadow: 3px 3px 20px #F75940;
-          box-shadow: 3px 3px 20px #F75940;
 }
 
 .product img {
@@ -334,7 +338,6 @@ nav {
       align-self: flex-end;
   margin: 5px 0;
   width: 70%;
-  height: 25px;
   background-color: #fff;
 }
 
@@ -347,13 +350,12 @@ nav {
   color: #fff;
   text-align: center;
   width: 80%;
-  height: 100%;
   font-size: 14px;
 }
 
 .product .addtobasket {
   width: 34px;
-  height: 36px;
+  height: 100%;
 }
 
 .product .detail {
@@ -370,15 +372,7 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.product .btns .price {
-  padding-top: 15px;
-}
-
-.product:hover {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  margin: 10px 0;
 }
 
 .category {
