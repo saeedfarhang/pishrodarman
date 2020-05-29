@@ -1,0 +1,106 @@
+@import '../../vars';
+.profile_unique {
+    margin: 20px 30px;
+    font-family: "kohinoor";
+    display: flex;
+    flex-direction: column;
+    direction: rtl;
+    color: $clblack;
+    .side {
+        height: 200px;
+        width: 100%;
+        background-color: $clgray;
+        padding: 20px;
+        box-shadow: 10px 10px 20px $clgray;
+        .prof_info {
+            display: flex;
+            align-items: center;
+            img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50px;
+                border: solid 1px #000;
+            }
+            .user {
+                line-height: 60%;
+                margin-right: 10px;
+                h1 {
+                    font-size: 18px;
+                }
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+        ul {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            li {
+                list-style: none;
+                margin: 5px 0;
+                a {
+                    color: $clblack;
+                    text-decoration: none;
+                }
+            }
+            .line {
+                width: 100%;
+                height: 1px;
+                background-color: $clwhite;
+            }
+        }
+    }
+    .cont {
+        height: 100%;
+        .title {
+            margin: 15px;
+            font-size: 14px;
+        }
+        .userinformation {
+            height: 100%;
+            width: 100%;
+            background-color: $clgray;
+            box-shadow: 10px 10px 20px $clgray;
+            .info {
+                display: flex;
+                flex: 0 0 50%;
+                flex-wrap: wrap;
+                padding: 20px;
+                h1 {
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+                h2 {
+                    font-weight: normal;
+                    font-size: 18px;
+                }
+                div {
+                    margin-right: 25px;
+                }
+            }
+            .update_profile {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: solid $clgreen 3px;
+                border-bottom: none;
+                border-radius: 25px 25px 0 0;
+                width: 100%;
+                background-color: $clgreen;
+                a {
+                    margin: 5px;
+                    color: $clwhite;
+                    text-decoration: none;
+                    font-weight: 500;
+                    font-size: 14px;
+                    width: 100%;
+                    height: 100%;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

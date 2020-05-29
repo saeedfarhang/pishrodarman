@@ -1,0 +1,6 @@
+{% extends 'base.html' %} {% block content %}
+<form action="{% url 'accounts:update_profile' %}" method="POST">
+    {{form}} {% csrf_token %}
+    <input type="submit" value="بروز رسانی">
+</form>
+{% endblock content %}

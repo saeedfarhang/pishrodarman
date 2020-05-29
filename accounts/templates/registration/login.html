@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block title %} login {% endblock title %} {% block content %} {% load crispy_forms_tags %}
+<div class="login">
+    <form action="" method="POST">
+        {% csrf_token %} {{form|crispy}} {% if request.GET.next %}
+        <input type="hidden" name="next" value="{{request.GET.next}}"> {%endif%}
+        <button type="submit">ورود</button>
+    </form>
+    <a href="{% url 'accounts:signup' %}">ثبت نام</a>
+</div>
+
+{% endblock content %}

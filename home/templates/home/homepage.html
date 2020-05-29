@@ -1,7 +1,87 @@
-{%extends "base.html"%}
+{%extends "base.html"%} {%load static%} {%block title%}home{%endblock%} {% block links %} {%endblock%} {%block content%}
 
-{%block title%}home{%endblock%}
+<div class="homecontainer">
+    <!-- slider -->
+    <div class="headslider">
+        {% for product in products %} {% if product.reccomend %}
+        <div class="slide" style="background-color: {{product.cltohex}};">
+            <div class="items">
+                <div class="itemsdetail">
+                    <h1>
+                        {{product.persian_name}}
+                    </h1>
+                    <p>{{product.snippet}}</p>
+                    <div class="buttons">
+                        <a href="{% url 'home:product_detail' product.slug %}"> <button class="detail">جزئیات</button> </a>
+                        {% if user.is_authenticated %}
+                        {% if product in cartitems %}
+                        <a href="{% url 'home:remove_cart' product.slug %}"><img src="{% static 'home/icons/remove.png' %}" alt="" class="addtobasket"></a>
 
-{%block content%}
-<h1>home</h1>
+                        {%else%}
+                        <a href="{% url 'home:add_cart' product.slug %}"><img src="{% static 'home/icons/addtobasket.png' %}" alt="" class="addtobasket"></a>
+                        {%endif%}
+                        {% else %}
+                        <a href="{% url 'accounts:login'%}"><img src="{% static 'home/icons/addtobasket.png' %}" alt="" class="addtobasket"></a>
+                        {% endif %}
+                    </div>
+                    <p class="price">قیمت : {{product.price}} ریال</p>
+                </div>
+                <div class="itemimg">
+                    <img src="media/{{MEDIA_URL}}{{product.image}}" alt="{{lp.image_lt}}">
+                </div>
+            </div>
+        </div>
+        {% endif %} {% endfor %}
+
+    </div>
+    <div class="last-products">
+        <h1>آخرین محصولات</h1>
+        <div class="line">
+        </div>
+        <div class="products">
+            {% for product in lastProduct %}
+            <div class="product">
+                <img src="{{product.image.url}}" alt="{{product.image_lt}}">
+                <div class="line"></div>
+                <h1>{{product.persian_name}}</h1>
+                <p>{{product.snippet}}</p>
+                <div class="btns">
+                    <a href="{% url 'home:product_detail' product.slug %}"> <button class="detail">جزئیات</button> </a>
+
+                         {% if user.is_authenticated %}
+                        {% if product in cartitems %}
+                        <a href="{% url 'home:remove_cart' product.slug %}"><img src="{% static 'home/icons/remove.png' %}" alt="" class="addtobasket"></a>
+
+                        {%else%}
+                        <a href="{% url 'home:add_cart' product.slug %}"><img src="{% static 'home/icons/addtobasket.png' %}" alt="" class="addtobasket"></a>
+                        {%endif%}
+                        {% else %}
+                        <a href="{% url 'accounts:login'%}"><img src="{% static 'home/icons/addtobasket.png' %}" alt="" class="addtobasket"></a>
+                        {% endif %}
+                        <p class="price">قیمت : {{product.price}} ریال</p>
+
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="category">
+        <h1>دسته بندی محصولات</h1>
+        <div class="line"></div>
+        <div class="cat">
+            {% for cat in category %}
+            <div class="cat_item">
+                <img src="media/{{MEDIA_URL}}{{cat.image}}" alt="">
+                <h3>{{cat.title}}</h3>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+<script src="{% static 'home/JS/home.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'home/JS/functions.js' %}"></script>
+
 {%endblock content%}

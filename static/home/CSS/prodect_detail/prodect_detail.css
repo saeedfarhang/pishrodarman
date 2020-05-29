@@ -1,0 +1,126 @@
+body {
+  font-family: 'kohinoor';
+}
+
+.unique_prodect_detail {
+  direction: rtl;
+  margin-top: 20px;
+}
+
+.unique_prodect_detail h1 {
+  font-family: 'kohinoor';
+  font-weight: bold;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.unique_prodect_detail .line {
+  width: 100%;
+  height: 5px;
+  background-color: #F75940;
+}
+
+.unique_prodect_detail .prodect {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.unique_prodect_detail .prodect .first {
+  width: 200px;
+  height: 200px;
+}
+
+.unique_prodect_detail .prodect .un {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+.unique_prodect_detail .prodect .un h2 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.unique_prodect_detail .prodect .un .basketbtn {
+  width: 85px;
+  height: 32px;
+  border-radius: 25px;
+  background-color: #F75940;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.unique_prodect_detail .prodect .un .basketbtn img {
+  width: 24px;
+  height: 26px;
+}
+
+.unique_prodect_detail .prodect .un .category {
+  line-height: 40%;
+  color: #fff;
+  margin-left: 5px;
+  width: 85px;
+  height: 32px;
+  border-radius: 25px;
+  background-color: #3DC7BE;
+}
+
+.unique_prodect_detail .prodect .un .category p {
+  margin: 0;
+  margin-bottom: 7px;
+  font-size: 12px;
+}
+
+.unique_prodect_detail .prodect .un .category h2 {
+  font-size: 14px;
+}
+
+.unique_prodect_detail .prodect p {
+  margin: 10px 25px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.unique_prodect_detail .prodect .price {
+  width: 120px;
+  height: 32px;
+  border-radius: 25px;
+  background-color: #334252;
+  margin-top: 5px;
+  color: #fff;
+  padding: 0;
+}
+
+.unique_prodect_detail .prodect .price p {
+  font-size: 14px;
+  margin: 10px;
+}
+/*# sourceMappingURL=prodect_detail.css.map */

@@ -7,6 +7,6 @@ from . import models
 # admin.site.register(models.Products)
 admin.site.register(models.products_category)
 
-@admin.register(models.Products)
+@admin.register(models.Product)
 class ProductsAdmin(admin.ModelAdmin):
     list_display = ('persian_name','english_name','reccomend')

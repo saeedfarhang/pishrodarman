@@ -25,7 +25,7 @@ SECRET_KEY = '((oa3bbssd!ypqg19ytya-4_@(od)kl*mno)8g%+4%)3)17%xf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['saeedfarhang.pythonanywhere.com' , 'localhost']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home',
+    'home','accounts','crispy_forms','carts',
 ]
 
 MIDDLEWARE = [
@@ -63,6 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'home.context_processors.carttotal',
             ],
         },
     },
@@ -123,3 +124,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'static'),
 )
+
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR ,'media')
+MEDIA_URL = '/media/'
+
+LOGIN_REDIRECT_URL = "/"

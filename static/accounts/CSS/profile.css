@@ -1,0 +1,156 @@
+.profile_unique {
+  margin: 20px 30px;
+  font-family: "kohinoor";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  direction: rtl;
+  color: #334252;
+}
+
+.profile_unique .side {
+  height: 200px;
+  width: 100%;
+  background-color: #E2E2E2;
+  padding: 20px;
+  -webkit-box-shadow: 10px 10px 20px #E2E2E2;
+          box-shadow: 10px 10px 20px #E2E2E2;
+}
+
+.profile_unique .side .prof_info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile_unique .side .prof_info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  border: solid 1px #000;
+}
+
+.profile_unique .side .prof_info .user {
+  line-height: 60%;
+  margin-right: 10px;
+}
+
+.profile_unique .side .prof_info .user h1 {
+  font-size: 18px;
+}
+
+.profile_unique .side .prof_info .user p {
+  font-size: 14px;
+}
+
+.profile_unique .side ul {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile_unique .side ul li {
+  list-style: none;
+  margin: 5px 0;
+}
+
+.profile_unique .side ul li a {
+  color: #334252;
+  text-decoration: none;
+}
+
+.profile_unique .side ul .line {
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+}
+
+.profile_unique .cont {
+  height: 100%;
+}
+
+.profile_unique .cont .title {
+  margin: 15px;
+  font-size: 14px;
+}
+
+.profile_unique .cont .userinformation {
+  height: 100%;
+  width: 100%;
+  background-color: #E2E2E2;
+  -webkit-box-shadow: 10px 10px 20px #E2E2E2;
+          box-shadow: 10px 10px 20px #E2E2E2;
+}
+
+.profile_unique .cont .userinformation .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 20px;
+}
+
+.profile_unique .cont .userinformation .info h1 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.profile_unique .cont .userinformation .info h2 {
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.profile_unique .cont .userinformation .info div {
+  margin-right: 25px;
+}
+
+.profile_unique .cont .userinformation .update_profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: solid #3DC7BE 3px;
+  border-bottom: none;
+  border-radius: 25px 25px 0 0;
+  width: 100%;
+  background-color: #3DC7BE;
+}
+
+.profile_unique .cont .userinformation .update_profile a {
+  margin: 5px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+/*# sourceMappingURL=profile.css.map */

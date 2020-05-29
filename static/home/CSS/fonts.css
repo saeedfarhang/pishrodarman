@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'kohinoor';
+    src: url('fonts/KohinoorBold.TTF');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Kohinoor';
+    src: url('fonts/KohinoorMedium.TTF');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Kohinoor';
+    src: url('fonts/KohinoorRegular.TTF');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Kohinoor';
+    src: url('fonts/KohinoorLight.TTF');
+    font-weight: lighter;
+}

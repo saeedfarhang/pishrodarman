@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% load static %} {% block links %}
+<link rel="stylesheet" href="{% static 'accounts/CSS/profile.css' %}" type="text/css"> {% endblock links %} {% block content %}
+
+<div class="profile_unique">
+    <div class="side">
+        <div class="prof_info">
+            <img src="" alt="">
+            <div class="user">
+                <h1>{{user.first_name}} {{user.last_name}}</h1><br>
+                <p>{{user.email}}</p>
+            </div>
+        </div>
+        <ul>
+            <div class="line"></div>
+            <li><a href="">سفارشات</a></li>
+            <div class="line"></div>
+            <li><a href="">سفارشات</a></li>
+            <div class="line"></div>
+            <li><a href="">سفارشات</a></li>
+            <div class="line"></div>
+            <li><a href="{% url 'accounts:logout' %}">خروج</a></li>
+            <div class="line"></div>
+        </ul>
+    </div>
+    <div class="cont">
+
+        <h1 class="title">اطلاعات کاربری</h1>
+        <div class="userinformation">
+            <div class="info">
+                <div class="username">
+                    <h1>نام کاربری</h1>
+                    <h2>{{user.username}}</h2>
+                </div>
+                <div class="useremail">
+                    <h1>آدرس ایمیل</h1>
+                    <h2>{{user.email}}</h2>
+                </div>
+                <div class="userphoneNumber">
+                    <h1>شماره همراه</h1>
+                    <h2>
+                        {% if user.userprofile.phoneNumber %} {{user.userprofile.phoneNumber}} {% else %}
+                        <a href="{% url 'accounts:update_profile' %}">تکمیل پروفایل</a> {% endif %}
+                    </h2>
+                </div>
+                <div class="userlocation">
+                    <h1>آدرس</h1>
+                    <h2>
+                        {% if user.userprofile.location %} {{user.userprofile.location}} {% else %}
+                        <a href="{% url 'accounts:update_profile' %}">تکمیل پروفایل</a> {% endif %}
+                    </h2>
+                </div>
+            </div>
+            <div class="update_profile"><a href="{% url 'accounts:update_profile' %}">تغییر اطلاعات</a></div>
+        </div>
+
+    </div>
+</div>
+{% endblock content %}

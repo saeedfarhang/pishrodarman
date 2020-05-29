@@ -1,0 +1,93 @@
+body {
+  font-family: "Kohinoor";
+}
+
+.cart_container {
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  direction: rtl;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.cart_container .cart_product {
+  width: 100%;
+  height: 200px;
+  background-color: #3DC7BE;
+  margin-top: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+}
+
+.cart_container .cart_product img {
+  width: auto;
+  height: 80%;
+  margin-right: 15px;
+  border-radius: 25px;
+}
+
+.cart_container .cart_product .product_info {
+  margin-right: 20px;
+}
+
+.cart_container .cart_product .product_info h1 {
+  font-size: 20px;
+}
+
+.cart_container .cart_product .product_info .btns {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.cart_container .cart_product .product_info .btns img {
+  width: 25px;
+  border-radius: 0;
+}
+
+.cart_container .line {
+  width: 90%;
+  height: 5px;
+  background-color: #E2E2E2;
+  margin-top: 20px;
+}
+
+.paybtn {
+  direction: rtl;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  background-color: #F75940;
+  display: block;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.paybtn a {
+  margin-top: 10px;
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+}
+/*# sourceMappingURL=style.css.map */

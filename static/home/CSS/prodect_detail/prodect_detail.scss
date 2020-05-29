@@ -1,0 +1,88 @@
+@import '../../../vars';
+body {
+    font-family: 'kohinoor';
+}
+
+.unique_prodect_detail {
+    direction: rtl;
+    margin-top: 20px;
+    h1 {
+        font-family: 'kohinoor';
+        font-weight: bold;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .line {
+        width: 100%;
+        height: 5px;
+        background-color: $clorange;
+    }
+    .prodect {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .first {
+            width: 200px;
+            height: 200px;
+        }
+        .un {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: left;
+            h2 {
+                font-size: 16px;
+                font-weight: bold;
+            }
+            .basketbtn {
+                width: 85px;
+                height: 32px;
+                border-radius: 25px;
+                background-color: $clorange;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                    width: 24px;
+                    height: 26px;
+                }
+            }
+            .category {
+                line-height: 40%;
+                color: $clwhite;
+                margin-left: 5px;
+                p {
+                    margin: 0;
+                    margin-bottom: 7px;
+                    font-size: 12px;
+                }
+                h2 {
+                    font-size: 14px;
+                }
+                width: 85px;
+                height: 32px;
+                border-radius: 25px;
+                background-color: $clgreen;
+            }
+        }
+        p {
+            margin: 10px 25px;
+            text-align: center;
+            font-size: 18px;
+        }
+        .price {
+            width: 120px;
+            height: 32px;
+            border-radius: 25px;
+            background-color: $clblack;
+            margin-top: 5px;
+            color: $clwhite;
+            padding: 0;
+            p {
+                font-size: 14px;
+                margin: 10px;
+            }
+        }
+    }
+}

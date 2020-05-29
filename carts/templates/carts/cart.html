@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% load static %} {% block title %} cart {% endblock title %} {% block links %}
+<link rel="stylesheet" href="{% static 'cart/CSS/style.css' %}"> {% endblock links %} {% block content %}
+<div class="cart_container">
+    {%if empty%}
+    <p>سبد خرید شما خالی است!</p>
+    {%else%}
+     {% for item in cart.products.all %}
+    <div class="cart_product">
+        <img src="{{item.image.url}}" alt="">
+        <div class="product_info">
+            <h1>{{item.persian_name}}</h1>
+            <p>{{item.snippet}}</p>
+            <div class="btns">
+                <a href="{% url 'home:product_detail' item.slug %}"> <button class="detail">جزئیات</button> </a>
+                <a class="remove" href="{% url 'home:remove_cart' item.slug %}"><img src="{% static 'home/icons/remove.png' %}" alt="" class="addtobasket"></a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="line"></div>
+    <div class="pay">
+        total is = {{cart.total}}
+    </div>
+    <div class="paybtn">
+        <a href="">
+            <h1>پرداخت</h1>
+        </a>
+    </div>
+    {%endif%}
+    {% for p in last_products %}<p>xxx</p>{% endfor %}
+</div>
+    
+
+ {% endblock content %}

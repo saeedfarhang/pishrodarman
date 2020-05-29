@@ -1,27 +1,94 @@
+{%load static%}
+{{block.super}}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- load static -->
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css" integrity="sha384-vus3nQHTD+5mpDiZ4rkEPlnkcyTP+49BhJ4wJeJunw06ZAp+wzzeBPUXr42fi8If" crossorigin="anonymous">
 
-    {%load static%}
-    <link rel="stylesheet" href="{% static 'home/CSS/style.css' %}" type="text/css">
+    <!-- link css in other htmls -->
+    <link rel="stylesheet" href="{% static 'home/CSS/base/style.css' %}" type="text/css">
+    <!-- link fonts -->
+    <link rel="stylesheet" href="{% static 'home/CSS/fonts.css' %}" type="text/css"> {% block links %}{%endblock%}
     <title>
-      {%block title%}title{%endblock%}
+        {%block title%}title{%endblock%}
+
     </title>
-  </head>
-  <body>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="{%url 'home:homeurl'%}">
+                <h4>LOGO</h4>
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">خانه</a></li>
+            <li><a href="#">محصولات</a></li>
+            <li><a href="#">بلابلا</a></li>
+            <li><a href="#">بلابلا</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="underheader">
+
+            <div class="searchox">
+                <form action="#">
+                    <input type="text" placeholder="جستجو در میان کالا ها">
+                </form>
+
+                <img class="searchic" src="{% static 'home/icons/search.png' %}" alt="search icon">
+            </div>
+            {% if user.is_authenticated %}
+            <a href="{%url 'accounts:profile'%}"><img src="{% static 'home/icons/user.png' %}" alt="user icon" class="useric"></a>
+            {% else %}
+            <a href="{% url 'accounts:login' %}"><img src="{% static 'home/icons/user.png' %}" alt="user icon" class="useric"></a>
+            {% endif %}
+            <a href="{% url 'home:cart' %}"><img src="{% static 'home/icons/basket.png' %}" alt="basket icon" class="basketic"></a>
+            <div class="bascket_total">
+                {% if items_total == None %}
+                <p>0</p>
+                {% else %}
+                <p>{{ items_total }}</p>
+
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+
+    <!-- content block -->
     {%block content%}{%endblock content%}
+    <!-- footer -->
+    <div class="footer">
+        <ul class="footer_links">
+            <li><a href="">سوالات متداول</a></li>
+            <li><a href="">همکاری</a></li>
+            <li><a href="">تماس با ما</a></li>
+            <li><a href="">راهنما</a></li>
+            <li><a href="">وبلاگ</a></li>
+            <li><a href="">گزارش</a></li>
+            <li><a href="">تماس با ما</a></li>
+        </ul>
+        <div class="copyright">
+            <div class="line"></div>
+            <p>
+                کلیه حقوق این سایت متعلق به شرکت پیشرودرمان است.
+            </p>
+        </div>
 
+    </div>
+    <script src="{% static 'home/JS/app.js' %}"></script>
+</body>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://cdn.rtlcss.com/bootstrap/v4.2.1/js/bootstrap.min.js" integrity="sha384-a9xOd0rz8w0J8zqj1qJic7GPFfyMfoiuDjC9rqXlVOcGO/dmRqzMn34gZYDTel8k" crossorigin="anonymous"></script>
-  </body>
 </html>
