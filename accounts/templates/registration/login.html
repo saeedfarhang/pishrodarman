@@ -1,11 +1,23 @@
-{% extends 'base.html' %} {% block title %} login {% endblock title %} {% block content %}
-<div class="login">
-    <form action="" method="POST">
-        {% csrf_token %} {{form}} {% if request.GET.next %}
-        <input type="hidden" name="next" value="{{request.GET.next}}"> {%endif%}
-        <button type="submit">ورود</button>
-    </form>
-    <a href="{% url 'accounts:signup' %}">ثبت نام</a>
+{% extends 'base.html' %} {% block title %} login {% endblock title %} {% block links %} {% load static %}
+<link rel="stylesheet" href="{% static 'accounts/CSS/registration/registration.css' %}"> {% endblock links %} {% block content %}
+<div class="login_container">
+    <div class="login">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label for="{{ form.username.id_for_label }}">نام کاربری:</label> {{ form.username }} {{ form.password.errors }}
+            <label for="{{ form.password.id_for_label }}">رمز ورود:</label> {{ form.password }} {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{request.GET.next}}"> {%endif%}
+            <button type="submit">ورود</button> {% if form.errors %}
+
+            <p class="error">نام کاربری یا رمز عبور اشتباه است.</p>
+
+            {% endif %}
+        </form>
+        <p class="signup">هنوز ثبت نام نکرده اید؟ <a href="{% url 'accounts:signup' %}">ثبت نام</a></p>
+
+
+
+    </div>
 </div>
 
 {% endblock content %}

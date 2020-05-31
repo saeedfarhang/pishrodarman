@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% load static %} {% block links %}
+{% extends 'base.html' %}  {% block links %}{% load static %}
 <link rel="stylesheet" href="{% static 'accounts/CSS/profile.css' %}" type="text/css"> {% endblock links %} {% block content %}
 
 <div class="profile_unique">
@@ -6,8 +6,10 @@
         <div class="prof_info">
             <img src="" alt="">
             <div class="user">
-                <h1>{{user.first_name}} {{user.last_name}}</h1><br>
-                <p>{{user.email}}</p>
+                <h1>{% if profile.fullname %}
+                {{profile.fullname}}{% else %}<a href="{% url 'accounts:update_profile' %}">تکمیل پروفایل</a>
+                {% endif %}</h1><br>
+                <p>{{profile.email}}</p>
             </div>
         </div>
         <ul>
@@ -33,19 +35,22 @@
                 </div>
                 <div class="useremail">
                     <h1>آدرس ایمیل</h1>
-                    <h2>{{user.email}}</h2>
+                    <h2>
+                    {% if profile.email %} {{profile.email}} {% else %}
+                        <a href="{% url 'accounts:update_profile' %}">تکمیل پروفایل</a> {% endif %}
+                    </h2>
                 </div>
                 <div class="userphoneNumber">
                     <h1>شماره همراه</h1>
                     <h2>
-                        {% if user.userprofile.phoneNumber %} {{user.userprofile.phoneNumber}} {% else %}
+                        {% if profile.phoneNumber %} {{profile.phoneNumber}} {% else %}
                         <a href="{% url 'accounts:update_profile' %}">تکمیل پروفایل</a> {% endif %}
                     </h2>
                 </div>
                 <div class="userlocation">
                     <h1>آدرس</h1>
                     <h2>
-                        {% if user.userprofile.location %} {{user.userprofile.location}} {% else %}
+                        {% if profile.location %} {{profile.location}} {% else %}
                         <a href="{% url 'accounts:update_profile' %}">تکمیل پروفایل</a> {% endif %}
                     </h2>
                 </div>

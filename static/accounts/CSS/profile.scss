@@ -104,3 +104,57 @@
         }
     }
 }
+
+.updateprofile_container {
+    background-color: $clgreen;
+    padding: 10px 0;
+    margin: 10px;
+    border-radius: 10px;
+    font-family: $font1;
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        button {
+            border: none;
+            // border-radius: 25px;
+            background-color: rgba($color: $clorange, $alpha: 0.7);
+            color: $clwhite;
+            font-weight: bold;
+            width: 100%;
+            height: 25px;
+            font-family: $font1;
+        }
+        button:hover {
+            background-color: rgba($color: $clorange, $alpha: 1);
+        }
+        label {
+            direction: rtl;
+            color: $clwhite;
+        }
+        input {
+            margin: 10px 0;
+            width: 80%;
+            height: 30px;
+            border-radius: 25px;
+            border: none;
+            padding: 0 10px;
+            background-color: rgba($color: $clwhite, $alpha: 0.5);
+        }
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+        input:hover,
+        input:valid {
+            background-color: $clwhite;
+        }
+    }
+}

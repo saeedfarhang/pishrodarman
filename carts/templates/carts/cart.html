@@ -1,34 +1,84 @@
 {% extends 'base.html' %} {% load static %} {% block title %} cart {% endblock title %} {% block links %}
 <link rel="stylesheet" href="{% static 'cart/CSS/style.css' %}"> {% endblock links %} {% block content %}
 <div class="cart_container">
-    {%if empty%}
+    {%if empty %}
     <p>سبد خرید شما خالی است!</p>
-    {%else%}
-     {% for item in cart.products.all %}
-    <div class="cart_product">
-        <img src="{{item.image.url}}" alt="">
-        <div class="product_info">
-            <h1>{{item.persian_name}}</h1>
-            <p>{{item.snippet}}</p>
-            <div class="btns">
-                <a href="{% url 'home:product_detail' item.slug %}"> <button class="detail">جزئیات</button> </a>
-                <a class="remove" href="{% url 'home:remove_cart' item.slug %}"><img src="{% static 'home/icons/remove.png' %}" alt="" class="addtobasket"></a>
-            </div>
+</div>
+{%else%} {% for item in cart.products.all %}
+<div class="cart_product">
+    <img src="{{item.image.url}}" alt="">
+    <div class="product_info">
+        <h1>{{item.persian_name}}</h1>
+        <p>{{item.snippet}}</p>
+        <div class="btns">
+            <a href="{% url 'home:product_detail' item.slug %}"> <button class="detail">جزئیات</button> </a>
+            <a id="removebtn" class="remove" onclick="delete_cart()" href="{% url 'home:remove_cart' item.slug %}"><img src="{% static 'home/icons/remove.png' %}" alt="" class="addtobasket"></a>
+            <script>
+                function delete_cart() {
+                    var remove = document.getElementById("removebtn")
+                    remove.removeAttribute("href");
+                    var r = confirm("آیا از حذف {{item.persian_name}} اطمینان دارید؟");
+                    if (r == true) {
+                        console.log('True');
+                        remove.setAttribute("href", "{% url 'home:remove_cart' item.slug %}");
+                    } else {
+                        console.log('False');
+                        remove.setAttribute("href", "#");
+                    }
+                }
+            </script>
         </div>
     </div>
-    {% endfor %}
-    <div class="line"></div>
-    <div class="pay">
-        total is = {{cart.total}}
-    </div>
-    <div class="paybtn">
-        <a href="">
-            <h1>پرداخت</h1>
-        </a>
-    </div>
-    {%endif%}
-    {% for p in last_products %}<p>xxx</p>{% endfor %}
 </div>
-    
+{% endfor %}
+<div class="line"></div>
+<div class="pay">
+    <p>مجموع مبلغ پرداختی : {{total}} ریال</p>
+</div>
 
- {% endblock content %}
+
+
+
+<div class="paybtn">
+    <a href="">
+        <h1>پرداخت</h1>
+    </a>
+</div>
+{%endif%}
+</div>
+
+
+
+
+
+<div class="last-products">
+    <h1>آخرین محصولات</h1>
+    <div class="line">
+    </div>
+    <div class="products">
+        {% for product in last_products %}
+        <div class="product">
+            <img src="{{product.image.url}}" alt="{{product.image_lt}}">
+            <div class="line"></div>
+            <h1>{{product.persian_name}}</h1>
+            <p>{{product.snippet}}</p>
+            <div class="btns">
+                <a href="{% url 'home:product_detail' product.slug %}"> <button class="detail">جزئیات</button> </a>
+
+                {% if user.is_authenticated %} {% if product in cartitems %}
+                <a href="{% url 'home:remove_cart' product.slug %}"><img src="{% static 'home/icons/remove.png' %}" alt="" class="addtobasket"></a>
+
+                {%else%}
+                <a href="{% url 'home:add_cart' product.slug %}"><img src="{% static 'home/icons/addtobasket.png' %}" alt="" class="addtobasket"></a>
+                {%endif%} {% else %}
+                <a href="{% url 'accounts:login'%}"><img src="{% static 'home/icons/addtobasket.png' %}" alt="" class="addtobasket"></a>
+                {% endif %}
+                <p class="price">قیمت : {{product.price|stringformat:"i"}} ریال</p>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %} {%block scripts%} {%endblock scripts%}

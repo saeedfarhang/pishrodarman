@@ -30,10 +30,10 @@
             </a>
         </div>
         <ul class="nav-links">
-            <li><a href="#">خانه</a></li>
+            <li><a href="{% url 'home:homeurl' %}">خانه</a></li>
             <li><a href="#">محصولات</a></li>
-            <li><a href="#">بلابلا</a></li>
-            <li><a href="#">بلابلا</a></li>
+            <li><a href="#">ارسال تیکت</a></li>
+            <li><a href="#">فروشنده شوید</a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>
@@ -96,6 +96,10 @@
             event.preventDefault();
         }
     </script>
+    
+    {% block scripts %}
+
+    {% endblock scripts %}
 </body>
 
 </html>

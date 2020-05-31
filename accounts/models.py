@@ -7,6 +7,9 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phoneNumber = models.CharField(max_length=12,blank=True,null=True)
     location = models.CharField(max_length=400,blank=True,null=True)
+    email = models.EmailField(blank=True,null=True)
+    fullname = models.CharField(max_length=30 ,blank=True,null=True)
+
 
     def __str__(self):
         return self.user.username

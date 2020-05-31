@@ -1,15 +1,12 @@
-{% extends 'base.html' %}
-{% block title %}
-signup
-{% endblock title %}
-{% block content %}
-
-
-
-<form action="" method="POST">
-    {{form}}
-    {% csrf_token %}
-    <button type="submit">ثبت نام</button>
-</form>
-
+{% extends 'base.html' %} {% block title %} signup {% endblock title %} {% block links %} {% load static %}
+<link rel="stylesheet" href="{% static 'accounts/CSS/registration/registration.css' %}"> {% endblock links %} {% block content %}
+<div class="signup_container">
+    <div class="signup">
+        <form action="" method="POST">
+            {{form}} {% csrf_token %}{{form1}} 
+            <button type="submit">ثبت نام</button>
+ 
+        </form>
+    </div>
+</div>
 {% endblock content %}

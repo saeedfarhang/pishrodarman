@@ -1,6 +1,11 @@
-{% extends 'base.html' %} {% block content %}
-<form action="{% url 'accounts:update_profile' %}" method="POST">
-    {{form}} {% csrf_token %}
-    <input type="submit" value="بروز رسانی">
-</form>
+{% extends 'base.html' %}{% block links %}{% load static %}
+<link rel="stylesheet" href="{% static 'accounts/CSS/profile.css' %}" type="text/css"> {% endblock links %} {% block content %}
+<div class="updateprofile_container">
+    <form action="{% url 'accounts:update_profile' %}" method="POST">
+        {{form1}}
+
+        {% csrf_token %}
+        <button type="submit">بروز رسانی</button>
+    </form>
+</div>
 {% endblock content %}

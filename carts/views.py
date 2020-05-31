@@ -17,9 +17,27 @@ def cart(request):
     except models.Cart.DoesNotExist:
         pass
     
+
+
     cart = models.Cart.objects.get(id = request.user.id)
 
-    context = {'cart':cart}
+    last_products = models.Product.objects.all().order_by('-date')[:5]
+
+  
+
+    new_total = 0
+    for item in cart.products.all():
+        new_total += item.price
+    
+    
+    if cart.products.all().count() == 0 :
+        print(cart.products.all().count())
+        context = {'cart':cart , 'total':new_total , 'last_products':last_products ,'empty':True}
+    else:
+        context = {'cart':cart , 'total':new_total , 'last_products':last_products ,'empty':False}
+
+
+
 
     return render(request,'carts/cart.html',context)
 
@@ -40,11 +58,6 @@ def add_cart(request, addslug):
     else:
         pass
     
-    new_total = 0
-    for item in cart.products.all():
-        new_total += item.price
-
-    
 
     return redirect(reverse('home:homeurl'))
         
@@ -54,4 +67,4 @@ def remove_cart(request , removeslug):
         cart = models.Cart.objects.get(id = request.user.id)
         product = models.Product.objects.get(slug = removeslug)
         cart.products.remove(product)
-    return redirect("/")
+    return redirect("home:cart")

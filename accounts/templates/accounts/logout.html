@@ -1,6 +1,13 @@
-{% extends 'base.html' %} {% block content %}
-<div>
-    خروج با موفقیت انجام شد
+{% extends 'base.html' %} {% block content %}{% block links %} {% load static %}
+<link rel="stylesheet" href="{% static 'accounts/CSS/registration/registration.css' %}"> {% endblock links %}
+<div class="logout_container">
+    <div class="success">
+        <p class="logoutt">خروج با موفقیت انجام گردید.</p>
+        <p class="login">از اینجا وارد شوید:
+            <a href="{% url 'accounts:login' %}">ورود</a>
+        </p>
+    </div>
+
 </div>
 
 {% endblock content %}
