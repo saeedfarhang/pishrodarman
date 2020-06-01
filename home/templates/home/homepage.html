@@ -24,7 +24,7 @@
                         <a href="{% url 'accounts:login'%}"><img src="{% static 'home/icons/addtobasket.png' %}" alt="" class="addtobasket"></a>
                         {% endif %}
                     </div>
-                    <p class="price">قیمت : {{product.price|stringformat:"i"}} ریال</p>
+                    <p class="price">قیمت : {{product.pricesn}} ریال</p>
                 </div>
                 <div class="itemimg">
                     <img src="media/{{MEDIA_URL}}{{product.image}}" alt="{{lp.image_lt}}">
@@ -58,7 +58,7 @@
                         {% else %}
                         <a href="{% url 'accounts:login'%}"><img src="{% static 'home/icons/addtobasket.png' %}" alt="" class="addtobasket"></a>
                         {% endif %}
-                        <p class="price">قیمت : {{product.price|stringformat:"i"}} ریال</p>
+                        <p class="price">قیمت : {{product.pricesn}} ریال</p>
 
                 </div>
             </div>

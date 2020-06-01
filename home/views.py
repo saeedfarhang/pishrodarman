@@ -18,8 +18,7 @@ def homepage(request):
 
         cart = Cart.objects.get(id = request.user.id)
         cart_items = cart.products.all()
-        print(cart_items)
-        args = {'products':products,'x':x ,'lastProduct':last_products, 'category':category,'cartitems':cart_items} 
+        args = {'products':products,'x':x ,'lastProduct':last_products, 'category':category,'cartitems':cart_items } 
     else:
         args = {'products':products,'x':x ,'lastProduct':last_products, 'category':category}
 
@@ -29,7 +28,20 @@ def homepage(request):
 def product_detail(request, slug):
     product = models.Product.objects.get(slug=slug)
     # return HttpResponse(english_name)
+    if request.user.is_authenticated:
+        try:
+            cart = Cart.objects.get(id = request.user.id)
 
-    return render(request,'home/product_detail.html',{'product':product})
+        except Cart.DoesNotExist:
+            new_cart = Cart(id = request.user.id)
+            new_cart.save()
+
+        cart = Cart.objects.get(id = request.user.id)
+        cart_items = cart.products.all()
+        args = {'product':product ,'cartitems':cart_items }
+    else:
+        args = {'product':product}
+
+    return render(request,'home/product_detail.html',args)
 
 

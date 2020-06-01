@@ -11,11 +11,20 @@
                 <h2>{{product.category}}</h2>
             </div>
             <div class="basketbtn">
-                <img src="{%static 'home/icons/addtobasket.png'%}" alt="">
+                {% if user.is_authenticated %}
+                        {% if product in cartitems %}
+                        <a href="{% url 'home:remove_cart' product.slug %}"><img src="{% static 'home/icons/remove.png' %}" alt="" class="addtobasket"></a>
+
+                        {%else%}
+                        <a href="{% url 'home:add_cart' product.slug %}"><img src="{% static 'home/icons/addtobasket.png' %}" alt="" class="addtobasket"></a>
+                        {%endif%}
+                        {% else %}
+                        <a href="{% url 'accounts:login'%}"><img src="{% static 'home/icons/addtobasket.png' %}" alt="" class="addtobasket"></a>
+                        {% endif %}
             </div>
         </div>
         <div class="price">
-            <p>{{product.price}} ریال</p>
+            <p>{{product.pricesn}} ریال</p>
         </div>
         <p>{{product.detail}}</p>
     </div>

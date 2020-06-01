@@ -67,4 +67,4 @@ def remove_cart(request , removeslug):
         cart = models.Cart.objects.get(id = request.user.id)
         product = models.Product.objects.get(slug = removeslug)
         cart.products.remove(product)
-    return redirect("home:cart")
+    return redirect("home:homeurl")
