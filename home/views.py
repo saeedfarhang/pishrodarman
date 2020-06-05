@@ -45,3 +45,18 @@ def product_detail(request, slug):
     return render(request,'home/product_detail.html',args)
 
 
+
+def category_view(request):
+    category = models.products_category.objects.all()
+    template = 'home/category.html'
+    context = {'category':category}
+    return render(request,template,context)
+
+def categoryslug(request,slug):
+    cat = models.products_category.objects.get(slug=slug)
+    product = models.Product.objects.filter(category = cat)
+    
+
+    template = 'home/cat_item.html'
+    context = {'cat':cat,'product':product}
+    return render(request,template,context)

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block links %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'home/CSS/category/style.css' %}">
+{% endblock links %}
+{% block content %}
+<div class="cat_container">
+
+    {% for category in category %}
+    <div class="catitem">
+        <img src="{{category.image.url}}" alt="{{category.alt}}">
+        <h1>
+            {{category.title}}
+        </h1>
+        <a href="{% url 'home:categoryslug' category.slug %}"></a>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock content %}

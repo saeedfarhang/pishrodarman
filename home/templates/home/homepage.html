@@ -73,6 +73,8 @@
             <div class="cat_item">
                 <img src="media/{{MEDIA_URL}}{{cat.image}}" alt="">
                 <h3>{{cat.title}}</h3>
+                <a href="{% url 'home:categoryslug' cat.slug %}"></a>
+
             </div>
             {% endfor %}
         </div>

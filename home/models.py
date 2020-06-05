@@ -10,7 +10,7 @@ class Product(models.Model):
     price = models.PositiveIntegerField(default=0)
     backgroundcolor = models.CharField(max_length=6 , default='F75940')
     image = models.ImageField(default='products/default.png', upload_to='products')
-    image_alt=models.CharField(default="image" ,max_length=50)
+    image_alt=models.CharField(default="image" ,max_length=500)
     date = models.DateTimeField(auto_now_add=False,auto_now = True)
     slug = models.SlugField(default='test')
 
@@ -49,7 +49,11 @@ class Product(models.Model):
         return pr[::-1]
         
 class products_category(models.Model):
+    # product = models.ForeignKey('Product',on_delete=models.CASCADE,related_name='+',null =True , blank = True)
     title = models.CharField(max_length = 100)
     image = models.ImageField(default='categoty/default.png', upload_to='category', max_length=300)
+    slug = models.SlugField(default='test')
+    alt =models.CharField(default="image" ,max_length=500)
+
     def __str__(self):
         return self.title

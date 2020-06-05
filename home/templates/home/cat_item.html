@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block links %} {% load static %}
+<link rel="stylesheet" href="{% static 'home/CSS/category/style.css' %}"> {% endblock links %} {% block content %}
+<div class="catitems_container">
+
+
+    {% for item in product %}
+    <div class="catitem" style="background-color: {{item.cltohex}};">
+        <img src="{{item.image.url}}" alt="{{item.alt}}">
+        <h1>
+            {{item.persian_name}}
+        </h1>
+        <a href="{% url 'home:product_detail' item.slug %}"> <button class="detail">جزئیات</button> </a>
+        <a class="diva" href="{% url 'home:product_detail' item.slug %}"></a>
+    </div>
+    {% endfor %}
+
+
+</div>
+{% endblock content %}

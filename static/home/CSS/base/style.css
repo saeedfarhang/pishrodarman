@@ -450,6 +450,12 @@ nav {
   text-shadow: 3px 3px 20px #334252;
 }
 
+.category .cat_item a {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+
 .footer {
   margin-top: 20px;
   width: 100%;

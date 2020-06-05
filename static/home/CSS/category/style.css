@@ -1,0 +1,109 @@
+* {
+  font-family: "Kohinoor";
+}
+
+.cat_container {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cat_container .catitem {
+  border-radius: 5px;
+  -webkit-box-shadow: 10px 10px 25px #E2E2E2;
+          box-shadow: 10px 10px 25px #E2E2E2;
+  color: #F75940;
+  width: 150px;
+  height: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #E2E2E2;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.cat_container .catitem img {
+  width: 70px;
+  margin-bottom: 5px;
+}
+
+.cat_container .catitem a {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+}
+
+.catitems_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 20px;
+  color: #fff;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.catitems_container .catitem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  width: 250px;
+  height: 250px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.catitems_container .catitem img {
+  width: 150px;
+  margin-bottom: 5px;
+}
+
+.catitems_container .catitem h1 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.catitems_container .catitem .diva {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+}
+/*# sourceMappingURL=style.css.map */
