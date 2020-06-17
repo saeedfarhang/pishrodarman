@@ -2,6 +2,7 @@
 
 <div class="homecontainer">
     <!-- slider -->
+    <!-- slider -->
     <div class="headslider">
         {% for product in products %} {% if product.reccomend %}
         <div class="slide" style="background-color: {{product.cltohex}};">
@@ -13,14 +14,12 @@
                     <p>{{product.snippet}}</p>
                     <div class="buttons">
                         <a href="{% url 'home:product_detail' product.slug %}"> <button class="detail">جزئیات</button> </a>
-                        {% if user.is_authenticated %}
-                        {% if product in cartitems %}
+                        {% if user.is_authenticated %} {% if product in cartitems %}
                         <a href="{% url 'home:remove_cart' product.slug %}"><img src="{% static 'home/icons/remove.png' %}" alt="" class="addtobasket"></a>
 
                         {%else%}
                         <a href="{% url 'home:add_cart' product.slug %}"><img src="{% static 'home/icons/addtobasket.png' %}" alt="" class="addtobasket"></a>
-                        {%endif%}
-                        {% else %}
+                        {%endif%} {% else %}
                         <a href="{% url 'accounts:login'%}"><img src="{% static 'home/icons/addtobasket.png' %}" alt="" class="addtobasket"></a>
                         {% endif %}
                     </div>
@@ -32,58 +31,119 @@
             </div>
         </div>
         {% endif %} {% endfor %}
-
     </div>
-    <div class="last-products">
-        <h1>آخرین محصولات</h1>
-        <div class="line">
-        </div>
-        <div class="products">
-            {% for product in lastProduct %}
-            <div class="product">
-                <img src="{{product.image.url}}" alt="{{product.image_lt}}">
-                <div class="line"></div>
-                <h1>{{product.persian_name}}</h1>
-                <p>{{product.snippet}}</p>
-                <div class="btns">
-                    <a href="{% url 'home:product_detail' product.slug %}"> <button class="detail">جزئیات</button> </a>
+    <div class="headsliderlarge">
+        <div class="leftslider">
+            {% for product in products %} {% if product.reccomend %} {%if product.preference == 'first'%}
+            <div class="slide" style="background-color: {{product.cltohex}};">
+                <div class="items">
+                    <div class="itemsdetail">
+                        <h1>
+                            {{product.persian_name}}
+                        </h1>
+                        <p>{{product.snippet}}</p>
+                        <div class="buttons">
+                            <a href="{% url 'home:product_detail' product.slug %}"> <button class="detail">جزئیات</button> </a>
+                            {% if user.is_authenticated %} {% if product in cartitems %}
+                            <a href="{% url 'home:remove_cart' product.slug %}"><img src="{% static 'home/icons/remove.png' %}" alt="" class="addtobasket"></a>
 
-                         {% if user.is_authenticated %}
-                        {% if product in cartitems %}
-                        <a href="{% url 'home:remove_cart' product.slug %}"><img src="{% static 'home/icons/remove.png' %}" alt="" class="addtobasket"></a>
-
-                        {%else%}
-                        <a href="{% url 'home:add_cart' product.slug %}"><img src="{% static 'home/icons/addtobasket.png' %}" alt="" class="addtobasket"></a>
-                        {%endif%}
-                        {% else %}
-                        <a href="{% url 'accounts:login'%}"><img src="{% static 'home/icons/addtobasket.png' %}" alt="" class="addtobasket"></a>
-                        {% endif %}
+                            {%else%}
+                            <a href="{% url 'home:add_cart' product.slug %}"><img src="{% static 'home/icons/addtobasket.png' %}" alt="" class="addtobasket"></a>
+                            {%endif%} {% else %}
+                            <a href="{% url 'accounts:login'%}"><img src="{% static 'home/icons/addtobasket.png' %}" alt="" class="addtobasket"></a>
+                            {% endif %}
+                        </div>
                         <p class="price">قیمت : {{product.pricesn}} ریال</p>
-
+                    </div>
+                    <div class="itemimg">
+                        <img src="media/{{MEDIA_URL}}{{product.image}}" alt="{{lp.image_lt}}">
+                    </div>
                 </div>
             </div>
-            {% endfor %}
-        </div>
+            {% endif %}{% endif %} {% endfor %}</div>
+        <div class="rightslider">
+            {% for product in products %} {% if product.reccomend %} {%if product.preference != 'first'%}
+
+            <div class="slide " style="background-color: {{product.cltohex}};">
+                <div class="items">
+                    <div class="itemsdetail">
+                        <h1>
+                            {{product.persian_name}}
+                        </h1>
+                        <p>{{product.snippet}}</p>
+                        <div class="buttons">
+                            <a href="{% url 'home:product_detail' product.slug %}"> <button class="detail">جزئیات</button> </a>
+                            {% if user.is_authenticated %} {% if product in cartitems %}
+                            <a href="{% url 'home:remove_cart' product.slug %}"><img src="{% static 'home/icons/remove.png' %}" alt="" class="addtobasket"></a>
+
+                            {%else%}
+                            <a href="{% url 'home:add_cart' product.slug %}"><img src="{% static 'home/icons/addtobasket.png' %}" alt="" class="addtobasket"></a>
+                            {%endif%} {% else %}
+                            <a href="{% url 'accounts:login'%}"><img src="{% static 'home/icons/addtobasket.png' %}" alt="" class="addtobasket"></a>
+                            {% endif %}
+                        </div>
+                        <p class="price">قیمت : {{product.pricesn}} ریال</p>
+                    </div>
+                    <div class="itemimg">
+                        <img src="media/{{MEDIA_URL}}{{product.image}}" alt="{{lp.image_lt}}">
+                    </div>
+                </div>
+            </div>
+            {% endif %} {% endif %} {% endfor %}</div>
     </div>
-    <div class="category">
-        <h1>دسته بندی محصولات</h1>
-        <div class="line"></div>
-        <div class="cat">
-            {% for cat in category %}
-            <div class="cat_item">
-                <img src="media/{{MEDIA_URL}}{{cat.image}}" alt="">
-                <h3>{{cat.title}}</h3>
-                <a href="{% url 'home:categoryslug' cat.slug %}"></a>
+
+
+
+
+</div>
+<div class="last-products">
+    <h1>آخرین محصولات</h1>
+    <div class="line">
+    </div>
+    <div class="products">
+        {% for product in lastProduct %}
+        <div class="product">
+            <img src="{{product.image.url}}" alt="{{product.image_lt}}">
+            <div class="line"></div>
+            <h1>{{product.persian_name}}</h1>
+            <p>{{product.snippet}}</p>
+            <div class="btns">
+                <a href="{% url 'home:product_detail' product.slug %}"> <button class="detail">جزئیات</button> </a>
+
+                {% if user.is_authenticated %} {% if product in cartitems %}
+                <a href="{% url 'home:remove_cart' product.slug %}"><img src="{% static 'home/icons/remove.png' %}" alt="" class="addtobasket"></a>
+
+                {%else%}
+                <a href="{% url 'home:add_cart' product.slug %}"><img src="{% static 'home/icons/addtobasket.png' %}" alt="" class="addtobasket"></a>
+                {%endif%} {% else %}
+                <a href="{% url 'accounts:login'%}"><img src="{% static 'home/icons/addtobasket.png' %}" alt="" class="addtobasket"></a>
+                {% endif %}
+                <p class="price">قیمت : {{product.pricesn}} ریال</p>
 
             </div>
-            {% endfor %}
         </div>
+        {% endfor %}
     </div>
+</div>
+<div class="category">
+    <h1>دسته بندی محصولات</h1>
+    <div class="line"></div>
+    <div class="cat">
+        {% for cat in category %}
+        <div class="cat_item">
+            <img src="media/{{MEDIA_URL}}{{cat.image}}" alt="">
+            <h3>{{cat.title}}</h3>
+            <a href="{% url 'home:categoryslug' cat.slug %}"></a>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
 </div>
 
 
-<script src="{% static 'home/JS/home.js' %}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'home/JS/home.js' %}"></script>
 <script src="{% static 'home/JS/functions.js' %}"></script>
 
 {%endblock content%}

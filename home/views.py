@@ -6,7 +6,7 @@ def homepage(request):
     products = models.Product.objects.all().order_by('-date')
     category = models.products_category.objects.all()
     last_products = models.Product.objects.all().order_by('-date')[:5]
-    x = 'aaa'
+    x = [1,2,3]
 
     if request.user.is_authenticated:
         try:

@@ -1,12 +1,19 @@
 from django.db import models
 
 # Create your models here.
+PREFERENCE_CHOICES = (
+   ('first', 'first'),
+   ('second', 'second'),
+   ('third', 'third'),
+)
+
 class Product(models.Model):
     persian_name = models.CharField(max_length=150)
     english_name = models.CharField(max_length = 150)
     detail = models.TextField()
     category = models.ForeignKey('products_category',on_delete=models.CASCADE,related_name='+')
     reccomend = models.BooleanField(default=False)
+    preference = models.CharField(choices=PREFERENCE_CHOICES, max_length=128, null=True,blank=True)
     price = models.PositiveIntegerField(default=0)
     backgroundcolor = models.CharField(max_length=6 , default='F75940')
     image = models.ImageField(default='products/default.png', upload_to='products')
