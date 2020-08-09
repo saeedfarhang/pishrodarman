@@ -1,0 +1,7 @@
+asgiref==3.2.10
+Django==3.1
+mysqlclient @ file:///D:/projects/envs/mysqlclient-1.4.6-cp38-cp38-win32.whl
+Pillow==7.2.0
+pytz==2020.1
+shortuuid==1.0.1
+sqlparse==0.3.1
